@@ -30,7 +30,7 @@ mult_DX_T <- function(model, T, cl = NULL) {
   # Sum the three parts to get the projection matrix
   P_list <- list()
   mats <- list()
-  mats$fixef <- fixest::sparse_model_matrix(
+  mats$fixef <- sparse_model_matrix(
     model,
     type = c("fixef"),
     collin.rm = TRUE, na.rm = TRUE
@@ -83,7 +83,7 @@ mult_DX_T <- function(model, T, cl = NULL) {
       if (!is.null(weights)) mats$slope_vars <- mats$slope_vars * sqrt(weights)
     }
   } else if (is.null(model$onlyFixef)) {
-    mats$rhs <- fixest::sparse_model_matrix(
+    mats$rhs <- sparse_model_matrix(
       model,
       type = c("rhs"),
       collin.rm = TRUE, na.rm = TRUE
@@ -201,7 +201,7 @@ solve_ImDX_T <- function(model, T, cl = NULL) {
   # Sum the three parts to get the projection matrix
   P_list <- list()
   mats <- list()
-  mats$fixef <- fixest::sparse_model_matrix(
+  mats$fixef <- sparse_model_matrix(
     model,
     type = c("fixef"),
     collin.rm = TRUE, na.rm = TRUE
@@ -250,7 +250,7 @@ solve_ImDX_T <- function(model, T, cl = NULL) {
       if (!is.null(weights)) mats$slope_vars <- mats$slope_vars * sqrt(weights)
     }
   } else if (is.null(model$onlyFixef)) {
-    mats$rhs <- fixest::sparse_model_matrix(
+    mats$rhs <- sparse_model_matrix(
       model,
       type = c("rhs"),
       collin.rm = TRUE, na.rm = TRUE
@@ -351,7 +351,7 @@ solve_ImDX1pDX2_T <- function(model1, model2, T, cl = NULL) {
   # Sum the three parts to get the projection matrix
   P_list <- list()
   mats1 <- list()
-  mats1$fixef <- fixest::sparse_model_matrix(
+  mats1$fixef <- sparse_model_matrix(
     model1,
     type = c("fixef"),
     collin.rm = TRUE, na.rm = TRUE
@@ -387,7 +387,7 @@ solve_ImDX1pDX2_T <- function(model1, model2, T, cl = NULL) {
       if (!is.null(weights1)) mats1$slope_vars <- mats1$slope_vars * sqrt(weights1)
     }
   } else if (is.null(model1$onlyFixef)) {
-    mats1$rhs <- fixest::sparse_model_matrix(
+    mats1$rhs <- sparse_model_matrix(
       model1,
       type = c("rhs"),
       collin.rm = TRUE, na.rm = TRUE
@@ -397,7 +397,7 @@ solve_ImDX1pDX2_T <- function(model1, model2, T, cl = NULL) {
   }
 
   mats2 <- list()
-  mats2$fixef <- fixest::sparse_model_matrix(
+  mats2$fixef <- sparse_model_matrix(
     model2,
     type = c("fixef"),
     collin.rm = TRUE, na.rm = TRUE
@@ -433,7 +433,7 @@ solve_ImDX1pDX2_T <- function(model1, model2, T, cl = NULL) {
       if (!is.null(weights2)) mats2$slope_vars <- mats2$slope_vars * sqrt(weights2)
     }
   } else if (is.null(model2$onlyFixef)) {
-    mats2$rhs <- fixest::sparse_model_matrix(
+    mats2$rhs <- sparse_model_matrix(
       model2,
       type = c("rhs"),
       collin.rm = TRUE, na.rm = TRUE
