@@ -39,7 +39,7 @@ block_diag_hatvalues <- function(model, cl = NULL) {
   # Sum the three parts to get the projection matrix
   P_list <- list()
   mats <- list()
-  mats$fixef <- fixest::sparse_model_matrix(
+  mats$fixef <- sparse_model_matrix(
     model,
     type = c("fixef"),
     collin.rm = TRUE, na.rm = TRUE
@@ -92,7 +92,7 @@ block_diag_hatvalues <- function(model, cl = NULL) {
       if (!is.null(weights)) mats$slope_vars <- mats$slope_vars * sqrt(weights)
     }
   } else if (is.null(model$onlyFixef)) {
-    mats$rhs <- fixest::sparse_model_matrix(
+    mats$rhs <- sparse_model_matrix(
       model,
       type = c("rhs"),
       collin.rm = TRUE, na.rm = TRUE
